@@ -86,4 +86,124 @@
       background: #2e7d32;
       color: white;
       border: none;
-      border-radius: 7px
+      border-radius: 7px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #256628;
+    }
+
+    .info {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>University Campus Food Bank</h1>
+    <p>Helping students access food and basic support</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Request Food Assistance</h2>
+
+      <form action="https://formsubmit.co/praiseobed23@gmail.com" method="POST">
+
+        <input type="hidden" name="_subject" value="New Food Assistance Request">
+        <input type="hidden" name="_captcha" value="false">
+
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="Full Name"
+          placeholder="Enter your full name"
+          required
+        >
+
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="Email"
+          placeholder="Enter your email"
+          required
+        >
+
+        <label for="student">Student ID</label>
+        <input
+          type="text"
+          id="student"
+          name="Student ID"
+          placeholder="Enter your student ID"
+          required
+        >
+
+        <label for="food">Type of Assistance Needed</label>
+        <select id="food" name="Assistance Needed" required>
+          <option value="">Select an option</option>
+          <option value="Food package">Food package</option>
+          <option value="Emergency food">Emergency food</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="message">Additional Information</label>
+        <textarea
+          id="message"
+          name="Additional Information"
+          placeholder="Tell us anything else we should know..."
+        ></textarea>
+
+        <button type="submit">Submit Request</button>
+
+      </form>
+
+      <div class="info">
+        <strong>Need help?</strong>
+        <p>
+          Complete the form above and submit your request.
+          A member of the food bank team will review it.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 University Campus Food Bank
+  </footer>
+
+  <!-- Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js")
+          .then(function () {
+            console.log("Service Worker registered successfully.");
+          })
+          .catch(function (error) {
+            console.log("Service Worker registration failed:", error);
+          });
+      });
+    }
+  </script>
+
+</body>
+</html>
