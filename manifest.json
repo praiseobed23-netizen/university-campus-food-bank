@@ -1,0 +1,11 @@
+{
+  "name": "University Campus Food Bank",
+  "short_name": "Campus Food Bank",
+  "description": "Food support for university students.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2e7d32",
+  "orientation": "portrait",
+  "icons": []
+}
