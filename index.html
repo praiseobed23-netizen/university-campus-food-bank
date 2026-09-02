@@ -1,34 +1,328 @@
-<section id="request-food">
-  <h2>Request Food</h2>
-  <p>Need food support? Please fill out the form below. Your information will be kept confidential.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Campus Food Bank</title>
 
-  <form action="https://formspree.io/f/xaeyejgn" method="POST">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7f9;
+      color: #222;
+      line-height: 1.6;
+    }
 
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    header {
+      background: #176b3a;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
 
-    <label for="student-id">Student ID</label>
-    <input type="text" id="student-id" name="student_id" placeholder="Enter your student ID">
+    header p {
+      font-size: 15px;
+      opacity: 0.9;
+    }
 
-    <label for="food-type">Type of Food Support Needed</label>
-    <select id="food-type" name="food_type" required>
-      <option value="">Select an option</option>
-      <option value="food package">Food Package</option>
-      <option value="emergency food">Emergency Food Support</option>
-      <option value="other">Other</option>
-    </select>
+    nav {
+      background: #0f4f2b;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 14px;
+    }
 
-    <label for="message">Tell us what you need</label>
-    <textarea id="message" name="message" rows="5"
-      placeholder="Please briefly describe your food needs" required></textarea>
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-    <button type="submit">Submit Food Request</button>
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-  </form>
-</section>
+    .hero {
+      background: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h2 {
+      color: #176b3a;
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #555;
+      font-size: 17px;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #176b3a;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #176b3a;
+      margin-bottom: 10px;
+    }
+
+    .form-container {
+      max-width: 650px;
+      margin: 40px auto;
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #176b3a;
+      margin-bottom: 10px;
+    }
+
+    .form-intro {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 18px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #176b3a;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      background: #176b3a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0f4f2b;
+    }
+
+    footer {
+      background: #0f4f2b;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 23px;
+      }
+
+      .hero h2 {
+        font-size: 27px;
+      }
+
+      .form-container {
+        margin: 25px 15px;
+        padding: 25px 20px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>University Campus Food Bank</h1>
+    <p>Founded by Praise Obed</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#request-food">Request Food</a>
+    <a href="#donate">Donate</a>
+    <a href="#volunteer">Volunteer</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>No Student Should Study on an Empty Stomach.</h2>
+    <p>
+      We connect students who need food support with donors and volunteers
+      who want to help.
+    </p>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Us</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>📦 Food Support</h3>
+        <p>
+          Students can request essential food packages through a simple
+          and confidential process.
+        </p>
+      </div>
+
+      <div class="card" id="donate">
+        <h3>❤️ Donations</h3>
+        <p>
+          Individuals and organizations can donate food or financial support.
+        </p>
+      </div>
+
+      <div class="card" id="volunteer">
+        <h3>🤝 Volunteers</h3>
+        <p>
+          Volunteers help us organize, distribute and deliver food support.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-container" id="request-food">
+
+    <h2>Request Food</h2>
+
+    <p class="form-intro">
+      Need food support? Please fill out the form below.
+      Your information will be kept confidential.
+    </p>
+
+    <form action="https://formspree.io/f/xaeyejgn" method="POST">
+
+      <label for="name">Full Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your full name"
+        required
+      >
+
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <label for="phone">Phone Number</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="Enter your phone number"
+      >
+
+      <label for="student-id">Student ID</label>
+      <input
+        type="text"
+        id="student-id"
+        name="student_id"
+        placeholder="Enter your student ID"
+      >
+
+      <label for="food-type">Type of Food Support Needed</label>
+      <select id="food-type" name="food_type" required>
+        <option value="">Select an option</option>
+        <option value="food_package">Food Package</option>
+        <option value="emergency_food">Emergency Food Support</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="message">Tell us what you need</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Please briefly describe your food needs"
+        required
+      ></textarea>
+
+      <button type="submit">Submit Food Request</button>
+
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 University Campus Food Bank</p>
+    <p>Supporting students. Strengthening our campus community.</p>
+  </footer>
+
+</body>
+</html>
